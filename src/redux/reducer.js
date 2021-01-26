@@ -46,6 +46,16 @@ const reducer = function(state = initialState,action ){
                 token:"",
                 role:""
             }
+        case "setSingleBus":
+            return {
+                ...state, 
+                bus: action.payload
+            }
+        case "buses":
+            return {
+                ...state, 
+                buses : action.payload
+            }
         
         default:
             return state
