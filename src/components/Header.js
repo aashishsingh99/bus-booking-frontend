@@ -1,19 +1,19 @@
 import React from 'react'
-import axios from 'axios'
+
 import {useSelector, useDispatch} from 'react-redux'
 import {Link} from 'react-dom'
 
 function Header() {
 
 
-    const dispatch = useDispatch()
+    
     const state = useSelector(s=>s)
     const {user, loggedin, role} = state
 
     return (
 
         <header>
-        <ul>
+            <ul>
             <li><Link to = '/'>Home</Link></li>
         </ul>
 

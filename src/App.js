@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import axios from 'axios'
+
 import 	HomePage from './components/Home'
 import	LoginPage from './components/Login'
 import	SignupPage from './components/Signup'
@@ -23,7 +23,7 @@ function App() {
   return (
     <Provider store= {store}>
     <Router>
-      <Header/>
+      {/* <Header/> */}
       <Switch>
       <Route exact path="/" component={HomePage}/>
 			<Route exact path="/seats" component={SeatsPage}/>
