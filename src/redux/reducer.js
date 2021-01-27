@@ -31,11 +31,6 @@ const reducer = function(state = initialState,action ){
     
     switch(action.type)
     {
-        // case "buses":
-        //     return {
-        //         ...state,
-        //         buses: action.payload
-        //     }
         
         case "bootstrap":
             return {
@@ -50,6 +45,14 @@ const reducer = function(state = initialState,action ){
                 token : action.payload.token, 
                 role : "user",
             }
+        case "loggedin_admin":
+            return {
+                ...state, 
+                loggedin : true,
+                user : "admin",
+                token : action.payload, 
+                role : "admin",
+            }
         case "logout":
             return {
                 ...state,
@@ -63,7 +66,21 @@ const reducer = function(state = initialState,action ){
                 ...state, 
                 bus: action.payload
             }
-        
+        case "my booking":
+			return {
+				...state,
+				booking:action.payload
+            }
+        case "bookings":
+            return {
+                ...state,
+                bookings:action.payload
+            }
+        case "buses":
+            return {
+                ...state,
+                buses: action.payload
+            }
         
         default:
             return state

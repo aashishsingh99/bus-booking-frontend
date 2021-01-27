@@ -1,14 +1,14 @@
 import React from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
-import {Link} from 'react-dom'
+import {Link} from 'react-router-dom'
 
 function Header() {
 
-
+    let dispatch = useDispatch()
+    let state = useSelector(s=>s)
     
-    const state = useSelector(s=>s)
-    const {user, loggedin, role} = state
+    let {user, loggedin, role} = state
 
     return (
 
@@ -29,14 +29,14 @@ function Header() {
             <li><Link to='/admin/index'>Welcome {user.name}</Link></li>
             <li><Link to='/admin/buses'>buses</Link></li>
             <li><Link to='/admin/bookings'>bookings</Link></li>
-            <li><Link to='/'>logout</Link></li>
+            <li onClick = {e => dispatch({type: "logout"})}><Link to='/'>logout</Link></li>
             </ul>
             :null
         }
 
         {role==="user"?<ul>
 			<li><Link to='/user/index'>welcome {user.name}</Link></li>
-			<li><Link to='/'>logout</Link></li>
+			<li onClick = {e => dispatch({type: "logout"})}><Link to='/'>logout</Link></li>
 		</ul>
 		:null}
         </header>

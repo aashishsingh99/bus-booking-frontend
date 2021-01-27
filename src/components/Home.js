@@ -8,7 +8,7 @@ function Home() {
     let dispatch=useDispatch()
 	let state=useSelector(s=>s)
     let {buses}=state
-    
+    console.log(buses)
     const setSingleBus = x => {
         dispatch({type: "setSingleBus", payload: x})
     }

@@ -16,7 +16,7 @@ function Login(props) {
             if(d.status)
             {
                 alert("loggedin success")
-                alert("loggedin success")
+                // alert("loggedin success")
 				localStorage.setItem("token",d.data.token)
 				localStorage.setItem("user",d.data.name)
 				localStorage.setItem("role","user")
@@ -32,11 +32,12 @@ function Login(props) {
 
     const adminlogin=e=>{
 		e.preventDefault()
-		axios.post("http://localhost:5000/login/admin",ob)
+        axios.post("http://localhost:5000/login/admin",ob)
+        .then(res=>res.data)
 		.then(d=>{
-			if(d.data.status)
-			{
-				localStorage.setItem("token",d.data.data.token)
+			if(d.status)
+			{   dispatch({type:"loggedn_admin", payload : d.data.token})
+				localStorage.setItem("token",d.data.token)
 				localStorage.setItem("user","admin")
 				localStorage.setItem("role","admin")
 				props.history.push("/admin/index")
@@ -46,13 +47,14 @@ function Login(props) {
 	}
 
     return (
-        <form onSubmit = {adminlogin}>
+        <form onSubmit = {submit}>
             <h1>Login user</h1>
             <p>email</p>
             <input name="email" placeholder="email" onChange={e=>setob({...ob, email:e.target.value})}/>
             <p>password</p>
             <input name="password" placeholder="password" onChange={e=>setob({...ob, password:e.target.value})} />
             <button>Login</button>
+            <button onClick = {adminlogin} type= " button ">admin</button>
         </form>
     )
 }
