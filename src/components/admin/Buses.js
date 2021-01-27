@@ -4,10 +4,10 @@ import {useSelector,useDispatch} from 'react-redux'
 
 function Buses() {
 
-    let dispatch=useDispatch()
-	let state=useSelector(s=>s)
-    let {buses}=state
-    
+    const dispatch=useDispatch()
+    const state=useSelector(s=>s)
+    const {buses}=state
+    console.log(buses)
     const [ob,setob] = useState({ bus_title : "", 
         bus_route : "", 
         bus_starttime : "", 
@@ -16,16 +16,18 @@ function Buses() {
         bus_from : "", 
         bus_to : ""}) 
 
-    const [status, setstatus] = useState(false)
+    let [status, setstatus] = useState(false)
 
     useEffect(function(){
         axios.get("http://localhost:5000/buses")
         .then(res=>res.data)
         .then(res=>res.data)
         .then(d=>{
+            
             dispatch({type: "buses", payload:d})
+            
         })
-        .catch(e=>alert(e.msg))
+        .catch(e=>alert("error "))
     },[])
 
     const submit = (e) => {
@@ -58,7 +60,7 @@ function Buses() {
                 )}
 				</tbody>
                 </table>
-                <button>add bus</button>
+                <button>add bus </button>
             </form>
             
 

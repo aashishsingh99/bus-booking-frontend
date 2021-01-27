@@ -46,7 +46,7 @@ function Login(props) {
 	}
 
     return (
-        <form onSubmit = {submit}>
+        <form onSubmit = {adminlogin}>
             <h1>Login user</h1>
             <p>email</p>
             <input name="email" placeholder="email" onChange={e=>setob({...ob, email:e.target.value})}/>

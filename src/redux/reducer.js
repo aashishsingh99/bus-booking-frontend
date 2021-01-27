@@ -28,8 +28,20 @@ const initialState = {
 }
 
 const reducer = function(state = initialState,action ){
+    
     switch(action.type)
     {
+        // case "buses":
+        //     return {
+        //         ...state,
+        //         buses: action.payload
+        //     }
+        
+        case "bootstrap":
+            return {
+                ...state,
+                ...action.payload
+            }
         case "loggedin_user":
             return {
                 ...state, 
@@ -51,11 +63,7 @@ const reducer = function(state = initialState,action ){
                 ...state, 
                 bus: action.payload
             }
-        case "buses":
-            return {
-                ...state, 
-                buses : action.payload
-            }
+        
         
         default:
             return state

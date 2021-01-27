@@ -3,7 +3,7 @@ import axios from 'axios'
 import {useSelector,useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 
-function Buses() {
+function Home() {
 
     let dispatch=useDispatch()
 	let state=useSelector(s=>s)
@@ -13,34 +13,6 @@ function Buses() {
         dispatch({type: "setSingleBus", payload: x})
     }
 
-    const [ob,setob] = useState({ bus_title : "", 
-        bus_route : "", 
-        bus_starttime : "", 
-        bus_endtime : "", 
-        bus_hours : "", 
-        bus_from : "", 
-        bus_to : ""}) 
-
-    const [status, setstatus] = useState(false)
-
-    useEffect(function(){
-        axios.get("http://localhost:5000/buses")
-        .then(res=>res.data)
-        .then(res=>res.data)
-        .then(d=>{
-            dispatch({type: "buses", payload:d})
-        })
-        .catch(e=>alert(e.msg))
-    },[status])
-
-    const submit = (e) => {
-        e.preventDefault()
-        axios.post('http://localhost:5000/buses',ob)
-        .then(res => res.data)
-        .then(res =>res.data)
-        .then(d => setstatus(true))
-        .catch(e => alert(e.message))
-    }
     return (
         <div>
             
@@ -83,4 +55,4 @@ function Buses() {
     )
 }
 
-export default Buses
+export default Home

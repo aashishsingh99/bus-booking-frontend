@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react'
-
+import axios from 'axios'
+import {useSelector,useDispatch} from 'react-redux'
 import 	HomePage from './components/Home'
 import	LoginPage from './components/Login'
 import	SignupPage from './components/Signup'
@@ -20,8 +21,27 @@ import {Provider} from 'react-redux';
 import store from './redux/store'
 
 function App() {
+  let dispatch=useDispatch()
+	let state=useSelector(s=>s)
+  useEffect(function(){
+		
+
+		abc()
+
+	},[])
+
+
+	const abc= async () =>{
+		const url="http://localhost:5000"
+		let users=await axios.get(url+"/users").then(res=>res.data.data)
+		let buses=await axios.get(url+"/buses").then(res=>res.data.data)
+		// let bookings=await axios.get(url+"/bookings").then(res=>res.data.data)
+
+		dispatch({type:"bootstrap",payload:{users,buses}})
+	}
+
   return (
-    <Provider store= {store}>
+    
     <Router>
       {/* <Header/> */}
       <Switch>
@@ -37,7 +57,7 @@ function App() {
       </Switch>
       <Footer/>
     </Router>
-    </Provider>
+    
     
   )
 }
