@@ -36,10 +36,11 @@ function Login(props) {
         .then(res=>res.data)
 		.then(d=>{
 			if(d.status)
-			{   dispatch({type:"loggedn_admin", payload : d.data.token})
+			{   alert("admin loggedin")
 				localStorage.setItem("token",d.data.token)
 				localStorage.setItem("user","admin")
-				localStorage.setItem("role","admin")
+                localStorage.setItem("role","admin")
+                dispatch({type:"loggedin_admin", payload : d.data.token})
 				props.history.push("/admin/index")
 			}
 		})
@@ -47,7 +48,7 @@ function Login(props) {
 	}
 
     return (
-        <form onSubmit = {submit}>
+        <form className = "form1" onSubmit = {submit}>
             <h1>Login user</h1>
             <p>email</p>
             <input name="email" placeholder="email" onChange={e=>setob({...ob, email:e.target.value})}/>

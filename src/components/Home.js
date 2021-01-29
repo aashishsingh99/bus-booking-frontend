@@ -6,18 +6,20 @@ function Home() {
 
     let dispatch=useDispatch()
 	let state=useSelector(s=>s)
-	let {buses}=state
+	let {buses,loggedin}=state
 	console.log("seebuses")
-	console.log("state is")
-	
+	console.log("lin")
+	console.log(loggedin)
     const setSingleBus = x => {
         dispatch({type: "setSingleBus", payload: x})
     }
 
     return (
+		
+			
         <div>
             
-
+			
             <table cellPadding="10" border="1">
 				<thead>
 					<tr>
@@ -52,7 +54,8 @@ function Home() {
 					)}
 				</tbody>
 			</table>
-        </div>
+		</div>
+		
     )
 }
 
