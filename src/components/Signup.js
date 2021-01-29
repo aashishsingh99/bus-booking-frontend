@@ -15,7 +15,7 @@ function Signup(props) {
         .then(d=>props.history.push("/login"))
     }
     return (
-        <form onSubmit = {submit}>
+        <form className = "form1" onSubmit = {submit}>
             <h1>Signup</h1>
             <p>name</p>
             <input name="name" placeholder="name" onChange = {e=> setob({...ob, name:e.target.value})} />

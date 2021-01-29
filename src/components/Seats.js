@@ -88,7 +88,7 @@ function Seats(props) {
                 seatid?"Book seat number :"+seatid:"please select a seat first"
             }</button>
             <h2>bus seats</h2>
-            <table border="1" cellPadding="10" cellSpacing="10">
+            <table className = "table-sm" border="1" cellPadding="10" cellSpacing="10">
 			<tbody>
 				{tr.slice(0,10).map((x,i) =>
 					<tr key={i}>

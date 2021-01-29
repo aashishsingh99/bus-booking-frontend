@@ -20,7 +20,7 @@ function Home() {
         <div>
             
 			
-            <table cellPadding="10" border="1">
+            <table cellPadding="10" cellSpacing="0">
 				<thead>
 					<tr>
 						<th>id</th>

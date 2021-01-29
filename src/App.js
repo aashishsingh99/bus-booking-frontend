@@ -42,6 +42,7 @@ function App() {
     
     <Router>
       <Header/>
+	  <div className = "container">
       <Switch>
       		<Route exact path="/" component={HomePage}/>
 			<Route exact path="/seats" component={SeatsPage}/>
@@ -53,6 +54,7 @@ function App() {
 			<Route exact path="/admin/bookings" component={AdminBookings}/>
 			<Route exact path="/user/index" component={UserHomePage}/>
       </Switch>
+	  </div>
       <Footer/>
     </Router>
     
