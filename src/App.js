@@ -6,7 +6,7 @@ import	LoginPage from './components/Login'
 import	SignupPage from './components/Signup'
 import	SeatsPage from './components/Seats'
 
-
+import AdminHome from './components/admin/Home'
 import	AdminBuses from './components/admin/Buses'
 import	AdminBookings from './components/admin/Bookings'
 
@@ -47,7 +47,7 @@ function App() {
 			<Route exact path="/seats" component={SeatsPage}/>
 			<Route exact path="/login" component={LoginPage}/>
 			<Route exact path="/signup" component={SignupPage}/>
-			
+			<Route exact path="/admin/index" component={AdminHome}/>
 			
 			<Route exact path="/admin/buses" component={AdminBuses}/>
 			<Route exact path="/admin/bookings" component={AdminBookings}/>

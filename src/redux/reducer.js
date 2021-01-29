@@ -17,10 +17,11 @@ const initialState = {
     buses: [],
     bus: {},
     users: [],
-    user: user, 
+     
     admin: [],
     bookings: [],
     booking: [],
+    user: user,
     role: role, 
     token: token,
     loggedin: loggedin,
@@ -28,7 +29,7 @@ const initialState = {
 }
 
 const reducer = function(state = initialState,action ){
-    
+    console.log(state)
     switch(action.type)
     {
         

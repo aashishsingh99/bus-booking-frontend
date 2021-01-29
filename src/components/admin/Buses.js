@@ -19,6 +19,8 @@ function Buses() {
     let [status, setstatus] = useState(false)
 
     useEffect(function(){
+        console.log("state is ")
+        console.log(state)
         axios.get("http://localhost:5000/buses")
         .then(res=>res.data)
         .then(res=>res.data)
@@ -28,7 +30,7 @@ function Buses() {
             
         })
         .catch(e=>alert("error "))
-    },[])
+    },[status])
 
     const submit = (e) => {
         e.preventDefault()

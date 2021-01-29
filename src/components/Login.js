@@ -16,12 +16,12 @@ function Login(props) {
             if(d.status)
             {
                 alert("loggedin success")
-                // alert("loggedin success")
+                
 				localStorage.setItem("token",d.data.token)
 				localStorage.setItem("user",d.data.name)
 				localStorage.setItem("role","user")
                 dispatch({type:"loggedin_user",payload:d.data})
-                props.history.push("/user/index")
+                props.history.push("/")
 
             }
             else{
@@ -43,7 +43,7 @@ function Login(props) {
 				props.history.push("/admin/index")
 			}
 		})
-		.then(d=>console.log(d))
+		.catch(d=>console.log(d))
 	}
 
     return (

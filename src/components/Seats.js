@@ -8,7 +8,7 @@ function Seats(props) {
     let x = state.bus
     let [a,seta] = useState([])
     let [num, setnum] = useState(40)
-    let [sid, setsid] = useState(0)
+    let [seatid, setseatid] = useState(0)
     let {bookings,buses,users} = state
 
     if(!x._id)
@@ -28,7 +28,7 @@ function Seats(props) {
         .catch(e=>alert("error hai"))
     },[])
     const filled_or_not=seat_num=>{
-		return bookings.some(x=>+x.sid===+seat_num) 
+		return bookings.some(x=>+x.seatid==+seat_num) 
 	}
 
 	let tr=new Array(11).fill(0).map((x,i) =>i).map(x=>x*4+1)
@@ -42,7 +42,7 @@ function Seats(props) {
 		else
 		{
 			console.log(num,state.bookings)
-			setsid(num)
+			setseatid(num)
 		}
 	}
     const dobooking = e =>{
@@ -52,8 +52,8 @@ function Seats(props) {
             }
         }
         const myobj = {
-            sid,
-            bid : x._id
+            seatid,
+            busid : x._id
         }
         axios.post("http://localhost:5000/book/seat",myobj,headers)
         .then(res =>{
@@ -84,10 +84,10 @@ function Seats(props) {
             </ol>
             <h2>Total seats : 40</h2>
             <h3>Available sets: {40-a.length}</h3>
-            <button disabled = {!sid} onClick = {dobooking}>{
-                sid?"Book seat number :"+sid:"please select a seat first"
+            <button disabled = {!seatid} onClick = {dobooking}>{
+                seatid?"Book seat number :"+seatid:"please select a seat first"
             }</button>
-            <h2>bus seat</h2>
+            <h2>bus seats</h2>
             <table border="1" cellPadding="10" cellSpacing="10">
 			<tbody>
 				{tr.slice(0,10).map((x,i) =>

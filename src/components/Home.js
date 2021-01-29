@@ -1,5 +1,4 @@
-import React,{useEffect,useState} from 'react'
-import axios from 'axios'
+import React from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
 
@@ -7,8 +6,10 @@ function Home() {
 
     let dispatch=useDispatch()
 	let state=useSelector(s=>s)
-    let {buses}=state
-    console.log(buses)
+	let {buses}=state
+	console.log("seebuses")
+	console.log("state is")
+	
     const setSingleBus = x => {
         dispatch({type: "setSingleBus", payload: x})
     }
@@ -29,7 +30,7 @@ function Home() {
 						<th>b_hours</th>
 						<th>b_from</th>
 						<th>b_to</th>
-						
+						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
