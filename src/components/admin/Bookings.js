@@ -61,9 +61,10 @@ let Bookings=function(){
 							<td>{user_col(x,"email")}</td>
 							<td>{user_col(x,"phone")}</td>
 							<td>{bus_col(x,"bus_title")}</td>
+							<td>{bus_col(x,"bus_from")} - {bus_col(x,"bus_to")}</td>
+							<td>{bus_col(x,"bus_starttime")} - {bus_col(x,"bus_endtime")}</td>
+                            
 							
-							<td>{bus_col(x,"bus_starttime")} - {bus_col(x,"bus_endtime")} - {bus_col(x,"bus_hours")} </td>
-							<td>{bus_col(x,"bus_fare")}</td>
 						</tr>
 						
 					)}

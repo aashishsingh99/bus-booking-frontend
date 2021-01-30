@@ -19,7 +19,7 @@ function Header() {
 
         {
             !loggedin?<ul>
-                <li><Link to = '/login'>login</Link></li>
+                <li><Link to = '/login'>Login</Link></li>
                 <li><Link to = '/signup'>Signup</Link></li>
             </ul>
             :null
@@ -27,15 +27,15 @@ function Header() {
         {
             role==="admin"?<ul>
             <li><Link to='/admin/index'>Welcome Admin</Link></li>
-            <li><Link to='/admin/buses'>buses</Link></li>
-            <li><Link to='/admin/bookings'>bookings</Link></li>
+            <li><Link to='/admin/buses'>Buses</Link></li>
+            <li><Link to='/admin/bookings'>Bookings</Link></li>
             <li onClick = {e => dispatch({type: "logout"})}><Link to='/'>logout</Link></li>
             </ul>
             :null
         }
 
         {role==="user"?<ul>
-			<li><Link to='/user/index'>welcome {user}</Link></li>
+			<li><Link to='/user/index'>Welcome {user}</Link></li>
 			<li onClick = {e => dispatch({type: "logout"})}><Link to='/'>logout</Link></li>
 		</ul>
 		:null}

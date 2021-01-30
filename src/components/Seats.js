@@ -68,26 +68,34 @@ function Seats(props) {
 
     return (
         <div>
+            <div className = "card-bus">
+                <div className = "card-heading">
             <h1> Bus selected is {x.bus_title}</h1>
-
+                </div>
+            <div className = "card-body">
             <ol>
-                <li>{x._id}</li>
-                <li>{x.bus_title}</li>
+                <li>Bus Id : {x._id}</li>
+                <li>Bus Name : {x.bus_title}</li>
                 
-                <li>{x.bus_route}</li>
-                <li>{x.bus_starttime}</li>
-                <li>{x.bus_endtime}</li>
-                <li>{x.bus_hours}</li>
-                <li>{x.bus_from}</li>
-                <li>{x.bus_to}</li>
-
+                <li>Route : {x.bus_route}</li>
+                <li>Start-time : {x.bus_starttime}</li>
+                <li>Endtime : {x.bus_endtime}</li>
+                <li>Hours : {x.bus_hours}</li>
+                <li>From : {x.bus_from}</li>
+                <li>To : {x.bus_to}</li>
+            
             </ol>
+            </div>
+            <div className = "card-footer">
             <h2>Total seats : 40</h2>
-            <h3>Available sets: {40-a.length}</h3>
+            {/* <h3>Available sets: {40-a.length}</h3> */}
+            
             <button disabled = {!seatid} onClick = {dobooking}>{
                 seatid?"Book seat number :"+seatid:"please select a seat first"
             }</button>
-            <h2>bus seats</h2>
+            </div>
+            <h2>Bus seats</h2>
+            </div>
             <table className = "table-sm" border="1" cellPadding="10" cellSpacing="10">
 			<tbody>
 				{tr.slice(0,10).map((x,i) =>

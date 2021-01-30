@@ -42,7 +42,7 @@ function Buses() {
     }
     return (
         <div>
-            <form onSubmit = {submit}>
+            <form onSubmit = {submit} style={{"align-items":"center"}}>
                 <h1>Total buses {buses.length}</h1>
                 <table>
                 <tbody>
@@ -62,7 +62,7 @@ function Buses() {
                 )}
 				</tbody>
                 </table>
-                <button>add bus </button>
+                <button style={{"margin":"2% auto","padding":"2%","cursor":"pointer"}}>add bus </button>
             </form>
             
 
@@ -70,14 +70,14 @@ function Buses() {
 				<thead>
 					<tr>
 						<th>id</th>
-						<th>bus_title</th>
+						<th>Bus title</th>
 					
-						<th>bus_route</th>
-						<th>bus_starttime</th>
-						<th>bus_endtime</th>
-						<th>b_hours</th>
-						<th>b_from</th>
-						<th>b_to</th>
+						<th>Bus route</th>
+						<th>Bus starttime</th>
+						<th>Bus endtime</th>
+						<th>Bus Hours</th>
+						<th>Bus From</th>
+						<th>Bus To</th>
 						
 					</tr>
 				</thead>

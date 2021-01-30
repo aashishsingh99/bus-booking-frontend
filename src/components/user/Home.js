@@ -63,8 +63,13 @@ let Home=function(props){
 				<tr>
 					<th>sno</th>
 					<th>bus</th>
-					<th>seat</th>
-					<th>actions</th>
+					<th>Route</th>
+					<th>Start-time</th>
+					<th>End-time</th>
+					<th>Hours</th>
+					<th>From</th>
+					<th>To</th>
+					<th>Actions</th>
 				</tr>
 			</thead>
 			<tbody>

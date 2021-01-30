@@ -23,15 +23,15 @@ function Home() {
             <table cellPadding="10" cellSpacing="0">
 				<thead>
 					<tr>
-						<th>id</th>
-						<th>bus_title</th>
+						<th>Bus Id</th>
+						<th>bus title</th>
 					
-						<th>bus_route</th>
-						<th>bus_starttime</th>
-						<th>bus_endtime</th>
-						<th>b_hours</th>
-						<th>b_from</th>
-						<th>b_to</th>
+						<th>bus route</th>
+						<th>bus starttime</th>
+						<th>bus endtime</th>
+						<th>b hours</th>
+						<th>b from</th>
+						<th>b to</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
