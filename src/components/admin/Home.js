@@ -12,7 +12,7 @@ function Home() {
     console.log(loggedin)
     return (
         <div>
-            <h1>Hello Admin!</h1>
+            <h1 style={{"text-align":"center"}}>Hello Admin!</h1>
         </div>
     )
 }

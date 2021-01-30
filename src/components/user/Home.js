@@ -56,7 +56,7 @@ let Home=function(props){
 	}
 
 	return <div>
-		<h1>user home page</h1>
+		
 		<h2>My total bookings {state.booking.length}</h2>
 		<table>
 			<thead>
