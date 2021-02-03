@@ -158,31 +158,7 @@ function Seats(props) {
           </Button>
         </DialogActions>
       </Dialog>
-            {/* <div className = "card-bus">
-                <div className = "card-heading">
-            <h3>{x.bus_title}</h3>
-                </div>
-            <div className = "card-body">
             
-            
-            <h4>Boarding : </h4><p>{x.bus_from} at {x.bus_starttime}</p>
-            <h4>Dropping : </h4><p>{x.bus_to} at {x.bus_endtime}</p>
-            <h4>Name : </h4><p>{state.user}</p>
-
-            
-            
-
-            </div>
-            <div className = "card-footer">
-            <h4>Total seats : 40</h4>
-            
-            
-            <button disabled = {!seatid} onClick = {handleClickOpen}>{
-                seatid?"Book seat:"+seatid:"please select a seat first"
-            }</button>
-            </div>
-            
-            </div> */}
 
 
 <Card style={{"position":"relative","top":"100px","left":"180px"}} className={classesCard.root}>
@@ -213,9 +189,7 @@ function Seats(props) {
                 seatid?"Book seat:"+seatid:"Select Seat"
             }
         </Button>
-        {/* <Button onClick = {<Link to="/"></Link>} size="small" color="primary">
-        Find Buses
-        </Button> */}
+        
         <Link to="/" className="btn btn-primary">Find Buses</Link>
       </CardActions>
     </Card>
