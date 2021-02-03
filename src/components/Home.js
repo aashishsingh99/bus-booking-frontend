@@ -72,18 +72,7 @@ function Home() {
 			
             
 			
-			{/* <div className = "busesdiv">
-				{buses.map(x=>
-				<div className = "busesinnerdiv">
-					
-						
-					<Link style={{"align items":"center","font-weight":"400"}}onClick={e=>setSingleBus(x)} to="/seats"><i style={{"color":"#13232f"}} class="fa fa-bus" aria-hidden="true"> View Seats {x.bus_title} {x.bus_from} - {x.bus_to}</i></Link>	
-					
-						
-					
-				</div>
-				)}
-			</div> */}
+			
 			{
 				buses.map(x=>
 			<Card style={{"width":"600px"}}className={classes.root}>
