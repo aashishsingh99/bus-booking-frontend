@@ -13,19 +13,24 @@ function Header() {
     return (
 
         <header>
-            <ul>
-            <li><Link to = '/'>Home</Link></li>
-            </ul>
+            
+            <Link to='/'><img style ={{"height":"88px","position":"relative","bottom":"6px"}} src = "https://www.graphicsprings.com/filestorage/stencils/f794ad52bccba5259868672d8db49de5.png?width=500&height=500"/></Link>
+            <h2 style={{"fontFamily":"impact", "font-weight":"10"}}>BlueBus</h2>
+            
 
         {
-            !loggedin?<ul>
+            !loggedin?<ul style={{"position":"relative","top":"5px","left":"10px"}}>
                 <li><Link to = '/login'>Login</Link></li>
                 <li><Link to = '/signup'>Signup</Link></li>
             </ul>
             :null
         }
         {
-            role==="admin"?<ul>
+            role==="admin"?<ul style={{"position":"relative","top":"5px","left":"10px"}}>
+            
+            
+            
+            <li><Link to = '/'><i class="fa fa-home fa-10x" aria-hidden="true" ></i></Link></li>
             <li><Link to='/admin/index'>Welcome Admin</Link></li>
             <li><Link to='/admin/buses'>Buses</Link></li>
             <li><Link to='/admin/bookings'>Bookings</Link></li>
@@ -34,9 +39,12 @@ function Header() {
             :null
         }
 
-        {role==="user"?<ul>
-			<li><Link to='/user/index'>Welcome {user}</Link></li>
-			<li onClick = {e => dispatch({type: "logout"})}><Link to='/login'>logout</Link></li>
+        {role==="user"?<ul style={{"position":"relative","top":"5px","right":"10px"}}>
+        
+            {/* <li><Link to = '/'><i class="fa fa-home fa-10x" fa-10x aria-hidden="true" ></i></Link></li> */}
+            <li><Link to = '/'>Home</Link></li>
+			<li><Link to='/user/index'>My Bookings</Link></li>
+			<li onClick = {e => dispatch({type: "logout"})}><Link to='/login'>Logout</Link></li>
 		</ul>
 		:null}
         </header>

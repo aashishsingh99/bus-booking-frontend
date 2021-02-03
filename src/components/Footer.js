@@ -3,7 +3,7 @@ import React from 'react'
 function Footer() {
     return (
         <footer align="center">
-            bus bookign app
+            <i className="fa fa-copyright"> Bluebus</i>
         </footer>
     )
 }

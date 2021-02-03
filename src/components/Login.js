@@ -49,13 +49,13 @@ function Login(props) {
 
     return (
         <form className = "form1" onSubmit = {submit}>
-            <h1>Login user</h1>
-            <p>email</p>
-            <input name="email" placeholder="email" onChange={e=>setob({...ob, email:e.target.value})}/>
-            <p>password</p>
-            <input name="password" placeholder="password" onChange={e=>setob({...ob, password:e.target.value})} />
-            <button>Login</button>
-            <button onClick = {adminlogin} type= " button ">admin</button>
+            <h2>Welcome to Bluebus</h2>
+            <p>Email</p>
+            <input name="email" placeholder="Email Address*" onChange={e=>setob({...ob, email:e.target.value})}/>
+            <p>Password</p>
+            <input name="password" placeholder="Set A Password*" onChange={e=>setob({...ob, password:e.target.value})} />
+            <button>Sign in</button>
+            <button onClick = {adminlogin} type= " button "><i class="fa fa-lock"></i> Admin</button>
         </form>
     )
 }

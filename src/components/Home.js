@@ -1,6 +1,8 @@
 import React from 'react'
 import {useSelector,useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
+import {Card} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 function Home() {
 
@@ -19,42 +21,23 @@ function Home() {
 			
         <div>
             
+			<h4 className="sub-title">Available Buses: {buses.length}</h4>
+            
 			
-            <table cellPadding="10" cellSpacing="0">
-				<thead>
-					<tr>
-						<th>Bus Id</th>
-						<th>bus title</th>
+			<div className = "busesdiv">
+				{buses.map(x=>
+				<div className = "busesinnerdiv">
 					
-						<th>bus route</th>
-						<th>bus starttime</th>
-						<th>bus endtime</th>
-						<th>b hours</th>
-						<th>b from</th>
-						<th>b to</th>
-						<th>Actions</th>
-					</tr>
-				</thead>
-				<tbody>
-					{buses.map(x=>
-						<tr>
-							<td>{x._id}</td>
-							<td>{x.bus_title}</td>
-							
-							<td>{x.bus_route}</td>
-							<td>{x.bus_starttime}</td>
-							<td>{x.bus_endtime}</td>
-							<td>{x.bus_hours}</td>
-							<td>{x.bus_from}</td>
-							<td>{x.bus_to}</td>
-							<td>
-							<Link onClick={e=>setSingleBus(x)} to="/seats">view seats</Link>
-						    </td>
-						</tr>
-					)}
-				</tbody>
-			</table>
+						
+					<Link style={{"align items":"center","font-weight":"400"}}onClick={e=>setSingleBus(x)} to="/seats"><i style={{"color":"#13232f"}} class="fa fa-bus" aria-hidden="true"> View Seats {x.bus_title} {x.bus_from} - {x.bus_to}</i></Link>	
+					
+						
+					
+				</div>
+				)}
+			</div>
 		</div>
+		
 		
     )
 }
