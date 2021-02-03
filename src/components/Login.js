@@ -41,7 +41,7 @@ function Login(props) {
 				localStorage.setItem("user","admin")
                 localStorage.setItem("role","admin")
                 dispatch({type:"loggedin_admin", payload : d.data.token})
-				props.history.push("/admin/index")
+				props.history.push("/")
 			}
 		})
 		.catch(d=>console.log(d))
@@ -50,9 +50,9 @@ function Login(props) {
     return (
         <form className = "form1" onSubmit = {submit}>
             <h2>Welcome to Bluebus</h2>
-            <p>Email</p>
+            <h3>Login</h3>
             <input name="email" placeholder="Email Address*" onChange={e=>setob({...ob, email:e.target.value})}/>
-            <p>Password</p>
+            
             <input name="password" placeholder="Set A Password*" onChange={e=>setob({...ob, password:e.target.value})} />
             <button>Sign in</button>
             <button onClick = {adminlogin} type= " button "><i class="fa fa-lock"></i> Admin</button>

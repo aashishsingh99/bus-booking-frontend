@@ -1,5 +1,6 @@
 import React, {useEffect, useState}  from 'react'
 import axios from 'axios'
+
 import Snackbar from '@material-ui/core/Snackbar';
 import MuiAlert from '@material-ui/lab/Alert';
 import { makeStyles } from '@material-ui/core/styles';
@@ -12,6 +13,19 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Paper from '@material-ui/core/Paper';
 import Draggable from 'react-draggable';
+import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardActions from '@material-ui/core/CardActions';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import {Link} from 'react-router-dom';
+import AccessAlarmsIcon from '@material-ui/icons/AccessAlarms';
+
+
+
 function PaperComponent(props) {
     return (
       <Draggable handle="#draggable-dialog-title" cancel={'[class*="MuiDialogContent-root"]'}>
@@ -30,8 +44,17 @@ function PaperComponent(props) {
       },
     },
   }));
+  const useStylesCard = makeStyles({
+    root: {
+      maxWidth: 345,
+    },
+    media: {
+      height: 140,
+    },
+  });
 function Seats(props) {
     const classes = useStyles();
+    const classesCard = useStylesCard();
     let dispatch = useDispatch()
     let state = useSelector(s=>s)
     let x = state.bus
@@ -105,6 +128,7 @@ function Seats(props) {
         })
         .catch(e=>alert(e.message))
         
+
     }
     
 
@@ -134,9 +158,9 @@ function Seats(props) {
           </Button>
         </DialogActions>
       </Dialog>
-            <div className = "card-bus">
+            {/* <div className = "card-bus">
                 <div className = "card-heading">
-            <h3> Bus selected is {x.bus_title}</h3>
+            <h3>{x.bus_title}</h3>
                 </div>
             <div className = "card-body">
             
@@ -151,14 +175,52 @@ function Seats(props) {
             </div>
             <div className = "card-footer">
             <h4>Total seats : 40</h4>
-            {/* <h3>Available sets: {40-a.length}</h3> */}
+            
             
             <button disabled = {!seatid} onClick = {handleClickOpen}>{
-                seatid?"Book seat number :"+seatid:"please select a seat first"
+                seatid?"Book seat:"+seatid:"please select a seat first"
             }</button>
             </div>
-            {/* <h2>Bus seats</h2> */}
-            </div>
+            
+            </div> */}
+
+
+<Card style={{"position":"relative","top":"100px","left":"180px"}} className={classesCard.root}>
+      <CardActionArea>
+        <CardMedia
+          className={classesCard.media}
+          image={x.photo}
+          
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="h2">
+            {x.bus_title}
+          </Typography>
+          <Typography variant="body2" color="textSecondary" component="p">
+          <LocationOnIcon></LocationOnIcon> Boarding : {x.bus_from} ({x.bus_starttime})
+            <br></br>
+            <LocationOnIcon></LocationOnIcon> Arrival : {x.bus_to} ({x.bus_endtime})
+            <br></br>
+            <AccessAlarmsIcon></AccessAlarmsIcon> Duration : {x.bus_hours}
+            <br></br>
+            <DirectionsBusIcon></DirectionsBusIcon> Total Seats : 40
+          </Typography>
+        </CardContent>
+      </CardActionArea>
+      <CardActions>
+        <Button variant="contained" color="primary" disabled = {!seatid} onClick = {handleClickOpen}>
+        {
+                seatid?"Book seat:"+seatid:"Select Seat"
+            }
+        </Button>
+        {/* <Button onClick = {<Link to="/"></Link>} size="small" color="primary">
+        Find Buses
+        </Button> */}
+        <Link to="/" className="btn btn-primary">Find Buses</Link>
+      </CardActions>
+    </Card>
+
+
             <Snackbar open={opentoast} autoHideDuration={6000} onClose={handleClose}>
             <Alert onClose={handleClose} severity="error">This seat is already booked!
             </Alert>
@@ -167,10 +229,10 @@ function Seats(props) {
 			<tbody>
 				{tr.slice(0,10).map((x,i) =>
 					<tr key={i}>
-						<td onClick={e=>bookNow(x+1)} bgcolor={filled_or_not(x+1)?"#696969":"white"}>{x+1}</td>
-						<td onClick={e=>bookNow(x+0)} bgcolor={filled_or_not(x+0)?"#696969":"white"}>{x+0}</td>
-						<td onClick={e=>bookNow(x+2)} bgcolor={filled_or_not(x+2)?"#696969":"white"}>{x+2}</td>
-						<td onClick={e=>bookNow(x+3)} bgcolor={filled_or_not(x+3)?"#696969":"white"}>{x+3}</td>
+						<td onClick={e=>bookNow(x+0)} bgcolor={filled_or_not(x+0)?"tomato":"lime"}>{x+0}</td>
+						<td onClick={e=>bookNow(x+1)} bgcolor={filled_or_not(x+1)?"tomato":"lime"}>{x+1}</td>
+						<td onClick={e=>bookNow(x+2)} bgcolor={filled_or_not(x+2)?"tomato":"lime"}>{x+2}</td>
+						<td onClick={e=>bookNow(x+3)} bgcolor={filled_or_not(x+3)?"tomato":"lime"}>{x+3}</td>
 					</tr>
 				)}
 			</tbody>

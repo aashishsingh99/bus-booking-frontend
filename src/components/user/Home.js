@@ -121,7 +121,7 @@ let Home=function(props){
 	return <div>
 		
 		
-		<h2 className="sub-title">My total bookings {state.booking.length}</h2>
+		<h5 className="sub-title">My total bookings {state.booking.length}</h5>
 		
 		<TableContainer component={Paper}>
       <Table className={classes.table} aria-label="customized table">

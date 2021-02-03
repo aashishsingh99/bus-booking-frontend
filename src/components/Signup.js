@@ -17,18 +17,18 @@ function Signup(props) {
     return (
         <form className = "form1" onSubmit = {submit}>
             <h1>Signup</h1>
-            <p>name</p>
+            
             <input name="name" placeholder="name" onChange = {e=> setob({...ob, name:e.target.value})} />
             
             
-            <p>email</p>
+            
             <input name="email" placeholder="email" onChange = {e=> setob({...ob, email:e.target.value})} />
             
             
-            <p>password</p>
+            
             <input name="password" placeholder="password" onChange = {e=> setob({...ob, password:e.target.value})} />
 
-            <p>phone</p>
+            
             <input name="phone" placeholder="phone" onChange = {e=> setob({...ob, phone:e.target.value})} />
             
             <button>Signup</button>

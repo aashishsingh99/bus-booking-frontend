@@ -1,108 +1,4 @@
-// import React,{useEffect,useState} from 'react'
-// import axios from 'axios'
-// import {useSelector,useDispatch} from 'react-redux'
 
-// function Buses() {
-
-//     const dispatch=useDispatch()
-//     const state=useSelector(s=>s)
-//     const {buses}=state
-//     console.log(buses)
-//     const [ob,setob] = useState({ bus_title : "", 
-//         bus_route : "", 
-//         bus_starttime : "", 
-//         bus_endtime : "", 
-//         bus_hours : "", 
-//         bus_from : "", 
-//         bus_to : ""}) 
-
-//     let [status, setstatus] = useState(false)
-
-//     useEffect(function(){
-//         console.log("state is ")
-//         console.log(state)
-//         axios.get("http://localhost:5000/buses")
-//         .then(res=>res.data)
-//         .then(res=>res.data)
-//         .then(d=>{
-            
-//             dispatch({type: "buses", payload:d})
-            
-//         })
-//         .catch(e=>alert("error "))
-//     },[status])
-
-//     const submit = (e) => {
-//         e.preventDefault()
-//         axios.post('http://localhost:5000/buses',ob)
-//         .then(res => res.data)
-//         .then(res =>res.data)
-//         .then(d => setstatus(true))
-//         .catch(e => alert(e.message))
-//     }
-//     return (
-//         <div>
-//             <form onSubmit = {submit} style={{"align-items":"center"}}>
-//                 <h1>Total buses {buses.length}</h1>
-//                 <table>
-//                 <tbody>
-// 					{Object.keys(ob).map(x=>
-//                     <tr>
-//                         <td>
-//                             {x}
-//                         </td>
-//                         <td>
-//                             <input 
-//                             onChange={e=>setob({...ob,[x]:e.target.value})}
-//                             value={ob[x]} 
-//                             placeholder={"enter "+x}
-//                             />
-//                         </td>
-//                     </tr>
-//                 )}
-// 				</tbody>
-//                 </table>
-//                 <button style={{"margin":"2% auto","padding":"2%","cursor":"pointer"}}>add bus </button>
-//             </form>
-            
-
-//             <table cellPadding="10" border="1">
-// 				<thead>
-// 					<tr>
-// 						<th>id</th>
-// 						<th>Bus title</th>
-					
-// 						<th>Bus route</th>
-// 						<th>Bus starttime</th>
-// 						<th>Bus endtime</th>
-// 						<th>Bus Hours</th>
-// 						<th>Bus From</th>
-// 						<th>Bus To</th>
-						
-// 					</tr>
-// 				</thead>
-// 				<tbody>
-// 					{buses.map(x=>
-// 						<tr>
-// 							<td>{x._id}</td>
-// 							<td>{x.bus_title}</td>
-							
-// 							<td>{x.bus_route}</td>
-// 							<td>{x.bus_starttime}</td>
-// 							<td>{x.bus_endtime}</td>
-// 							<td>{x.bus_hours}</td>
-// 							<td>{x.bus_from}</td>
-// 							<td>{x.bus_to}</td>
-							
-// 						</tr>
-// 					)}
-// 				</tbody>
-// 			</table>
-//         </div>
-//     )
-// }
-
-// export default Buses
 import React,{useEffect,useState} from 'react'
 import axios from 'axios'
 import {useSelector,useDispatch} from 'react-redux'
@@ -115,14 +11,16 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
+import PhotoIcon from '@material-ui/icons/Photo';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
-
+import LocationOnIcon from '@material-ui/icons/LocationOn';
+import DirectionsBusIcon from '@material-ui/icons/DirectionsBus';
+import AccessAlarmsIcon from '@material-ui/icons/AccessAlarms';
 const StyledTableCell = withStyles((theme) => ({
     head: {
       backgroundColor: theme.palette.info.dark,
@@ -146,10 +44,18 @@ const StyledTableCell = withStyles((theme) => ({
     },
   });
 
-  
+  const useStylesForm = makeStyles((theme) => ({
+    root: {
+      '& > *': {
+        margin: theme.spacing(1),
+        width: '10ch',
+      },
+    },
+  }));
   
 function Buses() {
     const classes = useStyles();
+    const classes1 = useStylesForm();
     const dispatch=useDispatch()
     const state=useSelector(s=>s)
     const {buses}=state
@@ -170,7 +76,8 @@ function Buses() {
         bus_endtime : "", 
         bus_hours : "", 
         bus_from : "", 
-        bus_to : ""}) 
+        bus_to : "",
+        photo:""}) 
 
     let [status, setstatus] = useState(false)
 
@@ -195,92 +102,38 @@ function Buses() {
         .then(res =>res.data)
         .then(d => setstatus(true))
         handleClose()
-        .catch(e => alert(e.message))
+        // .catch(e => alert(e.message))
     }
     return (
         <div style={{"margin":"20px auto"}}>
-            {/* <form onSubmit = {submit} style={{"align-items":"center"}}>
-                <h1>Total buses {buses.length}</h1>
-                <table>
-                <tbody>
-					{Object.keys(ob).map(x=>
-                    <tr>
-                        <td>
-                            {x}
-                        </td>
-                        <td>
-                            <input 
-                            onChange={e=>setob({...ob,[x]:e.target.value})}
-                            value={ob[x]} 
-                            placeholder={"enter "+x}
-                            />
-                        </td>
-                    </tr>
-                )}
-				</tbody>
-                </table>
-                <button style={{"margin":"2% auto","padding":"2%","cursor":"pointer"}}>add bus </button>
-            </form>
             
-
-            <table cellPadding="10" border="1">
-				<thead>
-					<tr>
-						<th>id</th>
-						<th>Bus title</th>
-					
-						<th>Bus route</th>
-						<th>Bus starttime</th>
-						<th>Bus endtime</th>
-						<th>Bus Hours</th>
-						<th>Bus From</th>
-						<th>Bus To</th>
-						
-					</tr>
-				</thead>
-				<tbody>
-					{buses.map(x=>
-						<tr>
-							<td>{x._id}</td>
-							<td>{x.bus_title}</td>
-							
-							<td>{x.bus_route}</td>
-							<td>{x.bus_starttime}</td>
-							<td>{x.bus_endtime}</td>
-							<td>{x.bus_hours}</td>
-							<td>{x.bus_from}</td>
-							<td>{x.bus_to}</td>
-							
-						</tr>
-					)}
-				</tbody>
-			</table> */}
             <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
         <DialogTitle id="form-dialog-title">Add New Bus</DialogTitle>
         <DialogContent>
           <DialogContentText>
             Please fill the details of the bus.
           </DialogContentText>
-          <form>
-          {Object.keys(ob).map(x=>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label={x}
-            type="email"
-            onChange={e=>setob({...ob,[x]:e.target.value})}
-            value={ob[x]}
-            fullWidth
-          />
-          )}
+          <form className={classes1.root}>
+          
+          <DirectionsBusIcon></DirectionsBusIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Bus Name" value={ob.bus_title} onChange={e=>setob({...ob,bus_title:e.target.value})}/>
+          <LocationOnIcon></LocationOnIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Route" value={ob.bus_route} onChange={e=>setob({...ob,bus_route:e.target.value})}/>
+          <AccessAlarmsIcon></AccessAlarmsIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Board Time" value={ob.bus_starttime} onChange={e=>setob({...ob,bus_starttime:e.target.value})}/>
+          
+          <AccessAlarmsIcon></AccessAlarmsIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Arrival Time" value={ob.bus_endtime} onChange={e=>setob({...ob,bus_endtime:e.target.value})}/>
+          
+          
+          <LocationOnIcon></LocationOnIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Boarding" value={ob.bus_from} onChange={e=>setob({...ob,bus_from:e.target.value})}/>
+          <LocationOnIcon></LocationOnIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Arrival" value={ob.bus_to} onChange={e=>setob({...ob,bus_to:e.target.value})}/>
+          <AccessAlarmsIcon></AccessAlarmsIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Duration" value={ob.bus_hours} onChange={e=>setob({...ob,bus_hours:e.target.value})}/>
+          <PhotoIcon></PhotoIcon><TextField InputProps={{ disableUnderline: true }} autoFocus  margin="dense" placeholder="Photo" value={ob.photo} onChange={e=>setob({...ob,photo:e.target.value})}/>
           </form>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
+        
+          <Button variant="contained" color="secondary" onClick={handleClose}>
             Cancel
           </Button>
-          <Button onClick={submit} color="primary">
+          <Button variant="contained" color="primary" onClick={submit} >
             Add Bus
           </Button>
         </DialogActions>

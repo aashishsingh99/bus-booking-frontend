@@ -73,7 +73,7 @@ header a:hover
 	display: flex;
 	flex-flow: wrap;
 	
-	padding:5px 5px;
+	padding:10px 10px;
 	margin: 20px auto;
 	
 	border-radius : 2px;
@@ -88,6 +88,15 @@ header a:hover
 	background-size: cover;	
 	object-fit: cover;
 	/* align-items: center; */
+	
+}
+.buseslist{
+	display: flex;
+	flex-direction: column;
+	/* flex-flow: wrap; */
+	align-items: center;
+	justify-content: space-around;
+	
 	
 }
 
@@ -167,7 +176,7 @@ footer
 
 .table-sm
 {
-	width: 25% !important;
+	width: 20% !important;
   /* margin:2% auto !important; */
   float: right;
   border-radius: 5%;
@@ -177,12 +186,13 @@ footer
   margin: 5% auto;
   height:50px;
   right:20%;
+  bottom:6%;
   
   
 }
 
 .table-sm td{
-	border:2px solid #4285F4;
+	border:2px solid black;
 	border-radius: 10%;
 }
 
@@ -193,14 +203,16 @@ footer
 {
 	position: absolute;
 	/* top:10%;right:5%; */
-  width:30%;
+  width:20%;
   /* margin : auto; */
-  box-shadow:0 10px 10px #13232f;
-  text-align: center;
+  /* box-shadow:0 10px 10px #13232f; */
+  /* text-align: justify; */
   /* padding-top: 4%; */
   left:15%;	
-  height:50px;
+  height:25px;
   margin:5% auto;
+  align-items: center;
+  /* background:white; */
 
 
 }
@@ -208,7 +220,9 @@ footer
 {
 	/* background:white; */
 	color:black;
-	border-bottom: 1px solid #696969;
+	margin: 5px auto;
+	
+	/* border-bottom: 1px solid #696969; */
 	
   /* padding: 2%; */
   
@@ -216,12 +230,12 @@ footer
 .card-bus .card-body
 {
 	padding: 1%;
-	line-height: 30px;
+	line-height: 20px;
 	background: white;
 	font-family: Georgia, 'Times New Roman', Times, serif;
 	line-height: normal;
 	font-weight: 1000%;
-	border-bottom: 1px solid #666666;
+	/* border-bottom: 1px solid #666666; */
 	
 }
 .card-bus .card-footer
@@ -229,17 +243,19 @@ footer
 	/* padding: 2%; */
 	/* background: white; */
 	color:black;
-	border-bottom: 1px solid #696969;
-	box-shadow:0 10px 10px #13232f;
+	/* border-bottom: 1px solid #696969; */
+	/* box-shadow:0 10px 10px #13232f; */
+	justify-content: center !important;
 }
 .card-bus .card-footer button
 {
 	padding: 10px;
 	margin:1% 1%;
-	width: 100%;
+	width: 30%;
 	background:#4285F4;
 	color:white;
 	border-radius: 5px;
+	justify-content: center;
 	
 }
 /* .card-bus .card-footer button:disabled
@@ -270,6 +286,7 @@ footer
 {
 	width: 100%;
 	padding: 10px;
+	margin:10px auto;
 	border:0;
 	/* background:#13232f; */
 	background: white;
@@ -328,6 +345,7 @@ table button
 	text-align: center;
 	border-left: 5px solid green;
 	background: rgba(0,255,0,0.2);
+	text-align: left;
 }
 table input
 {

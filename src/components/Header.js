@@ -2,7 +2,7 @@ import React from 'react'
 
 import {useSelector, useDispatch} from 'react-redux'
 import {Link} from 'react-router-dom'
-
+import HomeIcon from '@material-ui/icons/Home';
 function Header() {
 
     let dispatch = useDispatch()
@@ -19,7 +19,7 @@ function Header() {
             
 
         {
-            !loggedin?<ul style={{"position":"relative","top":"5px","left":"10px"}}>
+            !loggedin?<ul style={{"position":"relative","top":"5px","right":"2px"}}>
                 <li><Link to = '/login'>Login</Link></li>
                 <li><Link to = '/signup'>Signup</Link></li>
             </ul>
@@ -31,10 +31,10 @@ function Header() {
             
             
             <li><Link to = '/'><i class="fa fa-home fa-10x" aria-hidden="true" ></i></Link></li>
-            <li><Link to='/admin/index'>Welcome Admin</Link></li>
+            {/* <li><Link to='/admin/index'>Welcome Admin</Link></li> */}
             <li><Link to='/admin/buses'>Buses</Link></li>
             <li><Link to='/admin/bookings'>Bookings</Link></li>
-            <li onClick = {e => dispatch({type: "logout"})}><Link to='/login'>logout</Link></li>
+            <li onClick = {e => dispatch({type: "logout"})}><Link to='/login'>Logout</Link></li>
             </ul>
             :null
         }
