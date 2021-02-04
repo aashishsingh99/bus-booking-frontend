@@ -80,7 +80,11 @@ function Buses() {
         photo:""}) 
 
     let [status, setstatus] = useState(false)
-
+    const headers={
+      headers:{
+        Authorization:`bearer ${state.token}`
+      }
+    }
     useEffect(function(){
         console.log("state is ")
         console.log(state)
@@ -97,9 +101,9 @@ function Buses() {
 
     const submit = (e) => {
         e.preventDefault()
-        axios.post('http://localhost:5000/buses',ob)
+        axios.post('http://localhost:5000/buses',ob,headers)
         .then(res => res.data)
-        .then(res =>res.data)
+        .then(d=>dispatch({type:"buses",payload:[...buses,d.data]}))
         .then(d => setstatus(true))
         handleClose()
         // .catch(e => alert(e.message))

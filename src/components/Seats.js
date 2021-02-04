@@ -78,18 +78,27 @@ function Seats(props) {
     }
 
     useEffect(function(){
+     
+      
         axios.post("http://localhost:5000/seat/info",{
             busid:x._id
         })
         .then(res=>res.data)
+        
         .then(d=>{
+            console.log(d.data)
             seta(d.data)
             setnum(new Array(num).fill(0).map((item,index)=>index+1))
+          
+          
         })
+        
         .catch(e=>alert("error hai"))
+        console.log(mounted)
     },[])
+
     const filled_or_not=seat_num=>{
-		return bookings.some(x=>+x.seatid==+seat_num) 
+		return bookings.some(x=>+x.seatid===+seat_num) 
 	}
 
 	let tr=new Array(11).fill(0).map((x,i) =>i).map(x=>x*4+1)

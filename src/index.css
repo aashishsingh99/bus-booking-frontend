@@ -82,7 +82,7 @@ header a:hover
 	box-shadow:0 5px 5px black;
 	
 	width:30%;
-	background-image: url(./components/bus.jpg);
+	/* background-image: url(./components/bus.jpg); */
 	background-repeat: no-repeat;
 	opacity: 0.8;
 	background-size: cover;	
