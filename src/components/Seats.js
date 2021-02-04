@@ -80,9 +80,7 @@ function Seats(props) {
     useEffect(function(){
      
       
-        axios.post("http://localhost:5000/seat/info",{
-            busid:x._id
-        })
+        axios.post("http://localhost:5000/seat/info")
         .then(res=>res.data)
         
         .then(d=>{
@@ -94,11 +92,11 @@ function Seats(props) {
         })
         
         .catch(e=>alert("error hai"))
-        console.log(mounted)
+        
     },[])
 
     const filled_or_not=seat_num=>{
-		return bookings.some(x=>+x.seatid===+seat_num) 
+		return bookings.some(item=>+item.seatid===+seat_num &&  item.busid===x._id) 
 	}
 
 	let tr=new Array(11).fill(0).map((x,i) =>i).map(x=>x*4+1)
